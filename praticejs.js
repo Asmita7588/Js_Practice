@@ -49,6 +49,21 @@ async function getData() {
 getData();
 
 
+
+
+async function handleTask() {
+  try {
+    const data = await fetchData();
+    const processed = await processData(data);
+    const saved = await saveData(processed);
+    console.log("All done!");
+  } catch (error) {
+    console.log("Something went wrong:", error);
+  }
+}
+
+
+
 // operation on array type of data
 let numbers = [5, 12, 8, 130, 44];
 
@@ -83,8 +98,8 @@ let sum = numbers.reduce((acc, num) => acc + num, 0);
 console.log("sum of numbers:", sum);
 
 
-// 6. Add (push) and Remove (pop) elements
-let newArray = [...numbers]; // Clone to avoid changes in original
+// 6. add (push) and remove (pop) elements
+let newArray = [...numbers]; 
 newArray.push(99);
 console.log("after push (99):", newArray);
 
@@ -92,12 +107,12 @@ newArray.pop();
 console.log("After Pop (remove last):", newArray);
 
 
-// 7. Check if all elements are > 0
+// 7. check if all elements are > 0
 let allPositive = numbers.every(num => num > 0);
 console.log("All numbers > 0:", allPositive);
 
 
-// 8. Check if some elements are > 100
+// 8. check if some elements are > 100
 let someLarge = numbers.some(num => num > 100);
 console.log("Some numbers > 100:", someLarge);
 
